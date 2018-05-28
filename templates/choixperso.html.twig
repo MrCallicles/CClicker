@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker ! Choix de la partie{% endblock %}
+
+{% block body %}
+    <h2>Choix de la partie </h2>
+    {% for i in perso %}
+        Nom : {{ i.nom }}
+        Score : {{ i.score }}
+        PV : {{ i.life }}
+        {{ i.image }}
+        <a href="jeu?perso={{ i.id }}&amp;compte={{ compte }}">Selectionner</a>
+        </br>
+    {% endfor %}
+    <h2>Créer un perso </h2>
+    {{ form_start(choixperso) }}
+    {{ form_widget(choixperso) }}
+    {{ form_end(choixperso) }}
+{% endblock %}
+
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker ! High Score{% endblock %}
+
+{% block body %}
+    <h1>High Score</h1>
+    <div class="highscore">
+        <ul>
+        {% for i in high %}
+            <li>
+            {{ i.score }}
+            {{ i.nom }}
+            {{ i.life }}
+            {{ i.pseudo }}
+            </li>
+        {% endfor %}
+        <ul>
+    </div>
+{% endblock %}
+
+

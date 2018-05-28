@@ -1,0 +1,19 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="titre">
+        Caillou clicker
+    </div>
+    <div class="menu">
+        {# recupère le nom du compte dans la session #}
+        {% if app.session.get("user") %}
+            Bonjour {{ app.session.get("user") }} !
+            <br/>
+            Vous n'êtes pas {{ app.session.get("user") }} ?
+            <br/>
+            <a href="logoutLogin">Se connecter à un autre compte</a>
+            <br/>
+            <a href="logoutCreate">Créer un compte</a>
+        {% endif %}
+    </div>
+    </nav>
+</header>

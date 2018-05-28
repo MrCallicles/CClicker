@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker ! Login{% endblock %}
+
+{% block body %}
+    <h2>Créer un compte</h2>
+    {{ form_start(create) }}
+    {{ form_widget(create) }}
+    {{ form_end(create) }}
+    <a href="/login">Se connecter à un compte existant</a>
+    {% if validPseudo == false%}
+        <div class="test">
+        Impossible de créer un compte,
+        Pseudo déjà utilisé.
+        </div>
+    {% endif %}
+{% endblock %}
+
+

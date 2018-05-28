@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker ! Login{% endblock %}
+
+{% block body %}
+    <h2>Login</h2>
+    {{ form_start(login) }}
+    {{ form_widget(login) }}
+    {{ form_rest(login) }}
+    {{ form_end(login) }}
+    {{ form_row(login._token, {'label': 'token' }) }}
+    <a href="/create">Créer un compte</a>
+    {% if validPseudo == false %}
+        <div class="valid">
+        Impossible de se connecter,
+        login ou mot de passe incorrect
+        </div>
+    {% endif %}
+{% endblock %}
+
+

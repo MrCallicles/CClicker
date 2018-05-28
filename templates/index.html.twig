@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker ! Index{% endblock %}
+
+{% block body %}
+    <h1>Index</h1>
+    <div>
+        <h2>Présentation</h2>
+        <p>
+        Caillou Clicker est un jeu fabuleux dans lequel on amasse des points.<br/>
+        Une aventure t'attends en compagnie de tes nouveaux amis, dingue !
+        </p>
+        <p>
+        </p>
+        <a href="/create">Créer un compte</a></br>
+        <a href="/login">Login</a>
+    </div>
+    <div class="highscore">
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="js/highscoreLogin.js"></script>
+{% endblock %}
+

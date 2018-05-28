@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caillou Clicker !{% endblock %}
+
+{% block body %}
+    <div class="initData" data-id={{ perso.id }}></div>
+    <div id="nom">
+    </div>
+    <div id="avatar">
+    </div>
+    <div id="game">
+    </div>
+    <div class="stats">
+        <div id="score">
+            <div class="label">
+                Score:
+            </div>
+            <div class="value">
+            </div>
+        </div>
+        <div id="life">
+            <div class="label">
+                Life:
+            </div>
+            <div class="value">
+            </div>
+        </div>
+    </div>
+    {% if debug %}
+    <div class="debug">
+        debug: <br/>
+        lastLog:
+        <div class="lastLog">
+        </div>
+        button:
+    </div>
+    {% endif %}
+    <a href="/compte">Retour au choix des perso</a>
+{% endblock %}
+
+{% block js %}
+    <script src="js/game.js"></script>
+    {% if debug %}
+        <script src="js/debugGame.js"></script>
+    {% endif %}
+{% endblock %}
+
+

@@ -1,0 +1,27 @@
+choixperso:
+    path: /compte
+    controller: App\Controller\ChoixPerso::choixPerso
+
+create:
+    path: /create
+    controller: App\Controller\Create::create
+
+gameover:
+    path: /gameover
+    controller: App\Controller\GameOver::gameOver
+
+highscore:
+    path: /highscore
+    controller: App\Controller\HighScore::highscore
+
+index:
+    path: /
+    controller: App\Controller\Index::index
+
+login:
+    path: /login
+    controller: App\Controller\Login::index
+
+jeu:
+    path: /jeu
+    controller: App\Controller\Jeu:jeu
