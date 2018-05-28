@@ -3,11 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" src="css/style.css">
+        <link rel="stylesheet" src="css/bootstrap.min.css">
     </head>
     <body>
         {% include 'navbar.html.twig' %}
         {% block body %}{% endblock %}
         {% block js %}{% endblock %}
+        <script src="/js/jquery-2.2.4.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
     </body>
 </html>
