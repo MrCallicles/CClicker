@@ -21,29 +21,29 @@ class Login extends Controller{
         }
         $log = new Compte();
         $login = $this->createForm(LoginType::class);
+
         $login->handleRequest($request);
+        if($login->isSubmitted() && $login->isValid()){
+            $loginFormData = $login->getData();
+            $check = $this
+                ->getDoctrine()
+                ->getRepository(Compte::class)
+                ->findAll();
 
-            if($login->isSubmitted() && $login->isValid()){
-                $loginFormData = $login->getData();
-                $check = $this
-                    ->getDoctrine()
-                    ->getRepository(Compte::class)
-                    ->findAll();
-
-                foreach($check as $j){
-                    if(strcmp($j->getPseudo(), $loginFormData['pseudo']) &&
-                        strcmp($j->getPassword(), $loginFormData['password'])){
-                            $session->set("user", $loginFormData['pseudo']);
-                            $validPseudo = true;
-                            return $this->redirectToRoute("choixperso");
-                    }
+            foreach($check as $j){
+                if(strcmp($j->getPseudo(), $loginFormData['pseudo']) == 0 &&
+                    strcmp($j->getPassword(), $loginFormData['password']) == 0){
+                        $validPseudo = true;
+                        $session->set("user", $loginFormData['pseudo']);
+                        return $this->redirectToRoute("choixperso");
                 }
-
-                return $this->render('login.html.twig', array(
-                        'login'=>$login->createView(),
-                        'validPseudo'=>false)
-                    );
             }
+
+            return $this->render('login.html.twig', array(
+                    'login'=>$login->createView(),
+                    'validPseudo'=>false)
+                );
+        }
 
         return $this->render('login.html.twig', array(
                 'login'=>$login->createView(),

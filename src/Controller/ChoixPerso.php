@@ -45,10 +45,6 @@ class ChoixPerso extends Controller{
             ->getRepository(Avatar::class)
             ->findAll();
 
-        $compte = $this->getDoctrine()
-            ->getRepository(Compte::class)
-            ->findOneBy(array('pseudo'=>$session->get('user')));
-
         foreach($avatar as $i){
             $avatarArray[$i->getImage()] = $i;
         }

@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class Index extends Controller{
+
     /**
      * @Route("/")
      * @Route("/index")

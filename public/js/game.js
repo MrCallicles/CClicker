@@ -130,6 +130,7 @@ clickGame.addEventListener('click', function(e, r){
 
 setInterval(function(){
     document.querySelector("#game").removeChild(clickGame);
+    r = Math.floor(Math.random() * 100);
     randomRoutine(clickGame,r);
-}, 5000);
+}, 1000);
 

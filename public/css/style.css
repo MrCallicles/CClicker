@@ -29,7 +29,8 @@ nav{
     font-size: 24px;
     display:flex;
     position: relative;
-    left: -250%;
+    background:white;
+    padding: 5px 5px;
 }
 
 .gameHeader #nom{
@@ -41,17 +42,8 @@ nav{
     padding-right: 20px;
     font-weight:bold;
     font-size: 18px;
-}
-
-.gameStats #score{
-    position: relative;
-    left: -250%;
-}
-
-.gameStats #life{
-    position:relative;
-    top: 50%;
-    left: -250%;
+    background:white;
+    padding: 5px 5px;
 }
 
 .debug{
