@@ -70,14 +70,17 @@ class PartieRepository extends ServiceEntityRepository
 
     public function getHighScore($nb){
         $conn = $this->getEntityManager()->getConnection();
-        $sql = 'SELECT score,nom,life,compte.pseudo
+        $sql = 'SELECT
+            score,nom,life,compte.pseudo
             FROM partie,compte WHERE
             partie.compte_id = compte.id
             ORDER BY score DESC';
-        //$sql = $sql."LIMIT :nb";
         $stmt = $conn->prepare($sql);
-        //$stmt->execute(['nb'=>$nb]);
         $stmt->execute();
-        return $stmt->fetchAll();
+        $collecter = array();
+        $t = 0;
+        while($t++ < $nb && array_push($collecter, $stmt->fetch())){
+        }
+        return $collecter;
     }
 }

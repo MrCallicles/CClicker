@@ -43,11 +43,23 @@ function die(game){
         });
 }
 
-function updateLife(game, value){
+function updateLifePlus(game, value){
     let update = new XMLHttpRequest();
     update.addEventListener('load', ()=>{});
     let _value = value;
     game.life += _value;
+    update.open('GET', '/jeu/'+game.id+'/save/'+game.life+'/'+game.score);
+    if(game.life <= 0){
+        die(game);
+    }
+    update.send();
+}
+
+function updateLifeMoins(game, value){
+    let update = new XMLHttpRequest();
+    update.addEventListener('load', ()=>{});
+    let _value = value;
+    game.life -= _value;
     update.open('GET', '/jeu/'+game.id+'/save/'+game.life+'/'+game.score);
     if(game.life <= 0){
         die(game);
@@ -60,15 +72,24 @@ function updateScoreDisplay(game, score){
     displayGame(game);
 }
 
-function updateLifeDisplay(game, life){
-    updateLife(game, life);
+function updateLifePlusDisplay(game, life){
+    updateLifePlus(game, life);
     displayGame(game);
 }
 
+function updateLifeMoinsDisplay(game, life){
+    updateLifeMoins(game, life);
+    displayGame(game);
+}
+
+
 function randomRoutine(button, r){
-    r = Math.floor(Math.random() * 100);
-    if(r < 85){
+    console.log("random : "+ r);
+    if(r > 0 && r < 70){
         button.style.color = "blue";
+    }
+    else if(r > 70 && r < 85){
+        button.style.color = "green";
     }
     else{
         button.style.color = "red";
@@ -80,22 +101,28 @@ function randomRoutine(button, r){
 
 //Mécanisme
 let clickGame = document.createElement("button");
-let r;
+var r = null;
 clickGame.id = "clickGame";
+clickGame.className = "btn btn-light";
 clickGame.innerHTML = "click !";
 clickGame.style.position = "absolute";
 randomRoutine(clickGame,r);
 
 
-clickGame.addEventListener('click', function(){
-    if(r < 70){
+clickGame.addEventListener('click', function(e, r){
+    r = Math.floor(Math.random() * 100);
+    console.log(r);
+    if(r > 0 && r < 70){
         updateScoreDisplay(game, 1);
+        console.log('score +1');
     }
-    else if(r < 85){
-        updateLifeDisplay(game, 1);
+    else if(r > 70 && r < 85){
+        updateLifePlusDisplay(game, 1);
+        console.log('life +1');
     }
     else{
-        updateLifeDisplay(game, -1);
+        updateLifeMoinsDisplay(game, 1);
+        console.log('life -1');
     }
     document.querySelector("#game").removeChild(clickGame);
     randomRoutine(clickGame,r);
@@ -104,4 +131,5 @@ clickGame.addEventListener('click', function(){
 setInterval(function(){
     document.querySelector("#game").removeChild(clickGame);
     randomRoutine(clickGame,r);
-}, 1000);
+}, 5000);
+

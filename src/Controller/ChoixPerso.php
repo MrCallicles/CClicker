@@ -57,7 +57,7 @@ class ChoixPerso extends Controller{
         $createPartie = $this->createFormBuilder($partie)
             ->add('nom', TextType::class, array('label'=>"Nom : "))
             ->add('avatar', ChoiceType::class, array('choices'=>$avatarArray, 'label'=>'Avatar : '))
-            ->add('save', SubmitType::class, array('label'=>"Ajouter le personnage"))
+            ->add('save', SubmitType::class, array('label'=>"Ajouter le personnage", "attr"=>['class'=>'btn btn-light']))
             ->getForm();
         $partie->setScore(0);
         $partie->setLife(10);

@@ -9,9 +9,9 @@
     {{ form_end(create) }}
     <a href="/login">Se connecter à un compte existant</a>
     {% if validPseudo == false%}
-        <div class="test">
-        Impossible de créer un compte,
-        Pseudo déjà utilisé.
+        <div class="text-danger">
+            Impossible de créer un compte,
+            Pseudo déjà utilisé.
         </div>
     {% endif %}
 {% endblock %}

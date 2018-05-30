@@ -14,6 +14,8 @@ class LoginType extends AbstractType{
         $builder
             ->add('pseudo', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('save', SubmitType::class, array('label' => "Login"));
+            ->add('save', SubmitType::class,
+            array('label' => "Login",
+            'attr'=>array('class'=>"btn btn-light")));
     }
 }

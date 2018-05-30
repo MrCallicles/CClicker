@@ -1,0 +1,61 @@
+body{
+    background: #cfae75;
+}
+nav{
+    border-bottom: solid;
+    background: white;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+}
+
+.bodyContent{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin: 5px;
+}
+
+#game{
+    display:flex;
+}
+
+.gameHeader{
+    font-weight:bold;
+    font-size: 24px;
+    display:flex;
+    position: relative;
+    left: -250%;
+}
+
+.gameHeader #nom{
+    padding-right: 10px;
+}
+
+.gameStats{
+    display:flex;
+    padding-right: 20px;
+    font-weight:bold;
+    font-size: 18px;
+}
+
+.gameStats #score{
+    position: relative;
+    left: -250%;
+}
+
+.gameStats #life{
+    position:relative;
+    top: 50%;
+    left: -250%;
+}
+
+.debug{
+    position:fixed;
+    top: 70%;
+    left: 10%;
+}

@@ -24,7 +24,7 @@ class Create extends Controller{
         $create = $this->createFormBuilder($compte)
             ->add('pseudo', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('save', SubmitType::class, array('label' => "Créer un compte" ))
+            ->add('save', SubmitType::class, array('label' => "Créer un compte", 'attr'=>['class'=>'btn btn-light']))
             ->getForm();
 
         //check si de pseudo n'est pas déjà dans la base
